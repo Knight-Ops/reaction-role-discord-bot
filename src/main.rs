@@ -4,8 +4,8 @@ use std::env;
 use serenity::{
     async_trait,
     model::{
-        channel::Channel, channel::Message, channel::Reaction, channel::ReactionType,
-        gateway::Ready, guild::Member,
+        channel::Channel, channel::Reaction, channel::ReactionType,
+        gateway::Ready,
     },
     prelude::*,
 };
@@ -123,9 +123,12 @@ impl Handler {
                                                     );
                                                 }
                                                 Action::RemoveRole => {
-                                                    member
-                                                        .remove_role(ctx.http.clone(), role_value)
-                                                        .await;
+                                                    println!(
+                                                        "RemoveRole for member : {:?}",
+                                                        member
+                                                            .remove_role(ctx.http.clone(), role_value)
+                                                            .await
+                                                    )
                                                 }
                                             }
                                         }
