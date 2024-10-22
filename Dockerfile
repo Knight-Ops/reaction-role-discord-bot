@@ -2,7 +2,7 @@
 # Cargo Build Stage
 # ------------------------------------------------------------------------------
 
-FROM rust:latest as cargo-build
+FROM rust:latest AS cargo-build
 
 RUN apt-get update
 
@@ -34,11 +34,9 @@ RUN cargo build --release --target x86_64-unknown-linux-gnu
 
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y passwd
-
-RUN addgroup --gid 1000 myapp
-
-RUN adduser --disabled-password --shell /bin/sh --uid 1000 --ingroup myapp myapp
+RUN groupadd --gid 1007 myapp && \
+    useradd --shell /bin/sh --uid 1007 -g myapp myapp && \
+    passwd -l myapp
 
 WORKDIR /home/myapp/bin/
 
