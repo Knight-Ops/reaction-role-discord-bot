@@ -1,6 +1,6 @@
 # reaction-role-discord-bot
 
-Super simple, reaction-based, discord bot for assigning roles to members of a server.
+Super simple, reaction-based, discord bot for assigning roles to members of a server
 
 ## Usage
 To use, build the Dockerfile
